@@ -29,6 +29,11 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             background-color: var(--background);
@@ -37,10 +42,17 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        .page-wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 1.5rem;
+            width: 100%;
         }
 
         header {
@@ -108,8 +120,12 @@
         }
 
         main {
-            padding: 6rem 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
+            padding: 2rem 0;
         }
 
         .hero-badge {
@@ -139,19 +155,24 @@
             font-size: 1.125rem;
             color: var(--muted-foreground);
             max-width: 600px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2.5rem;
             line-height: 1.6;
+        }
+
+        .cta-group {
+            margin-bottom: 3rem;
         }
 
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin-top: 5rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .feature-card {
-            padding: 2rem;
+            padding: 1.5rem;
             background: white;
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -165,26 +186,26 @@
         }
 
         .feature-icon {
-            width: 3rem;
-            height: 3rem;
+            width: 2.5rem;
+            height: 2.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: var(--accent);
             color: var(--primary);
             border-radius: 0.75rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .feature-title {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             color: var(--foreground);
         }
 
         .feature-desc {
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
             color: var(--muted-foreground);
             line-height: 1.6;
         }
@@ -192,53 +213,57 @@
         @media (max-width: 768px) {
             .hero-title { font-size: 2.25rem; }
             .feature-grid { grid-template-columns: 1fr; }
-            main { padding: 4rem 0; }
+            main { padding: 1.5rem 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="." class="logo">
-                Notes.
-            </a>
-            <nav class="nav-links">
-                <a href="auth" class="btn btn-ghost">Sign In</a>
-                <a href="auth?action=register" class="btn btn-primary">Get Started</a>
-            </nav>
-        </header>
+    <div class="page-wrapper">
+        <div class="container">
+            <header>
+                <a href="." class="logo">
+                    Notes.
+                </a>
+                <nav class="nav-links">
+                    <a href="auth" class="btn btn-ghost">Sign In</a>
+                    <a href="auth?action=register" class="btn btn-primary">Get Started</a>
+                </nav>
+            </header>
+        </div>
 
         <main>
-            <h1 class="hero-title">Your thoughts, effortlessly organized.</h1>
-            <p class="hero-subtitle">Experience a clean, modern workspace designed to capture your ideas instantly and keep your productivity flowing.</p>
-            
-            <div class="cta-group">
-                <a href="auth?action=register" class="btn btn-primary" style="padding: 0.875rem 2.5rem; font-size: 1rem;">
-                    Start Writing Now
-                </a>
-            </div>
+            <div class="container">
+                <h1 class="hero-title">Your thoughts, effortlessly organized.</h1>
+                <p class="hero-subtitle">Experience a clean, modern workspace designed to capture your ideas instantly and keep your productivity flowing.</p>
+                
+                <div class="cta-group">
+                    <a href="auth?action=register" class="btn btn-primary" style="padding: 0.875rem 2.5rem; font-size: 1rem;">
+                        Start Writing Now
+                    </a>
+                </div>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i data-lucide="feather"></i>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="feather"></i>
+                        </div>
+                        <h3 class="feature-title">Lightweight Experience</h3>
+                        <p class="feature-desc">A minimal interface that stays out of your way, so you can focus on what matters most.</p>
                     </div>
-                    <h3 class="feature-title">Lightweight Experience</h3>
-                    <p class="feature-desc">A minimal interface that stays out of your way, so you can focus on what matters most.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i data-lucide="shield-check"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+                        <h3 class="feature-title">Encrypted Sync</h3>
+                        <p class="feature-desc">Your thoughts are private. Everything is securely synced across all your devices in real-time.</p>
                     </div>
-                    <h3 class="feature-title">Encrypted Sync</h3>
-                    <p class="feature-desc">Your thoughts are private. Everything is securely synced across all your devices in real-time.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i data-lucide="search"></i>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="search"></i>
+                        </div>
+                        <h3 class="feature-title">Lightning Search</h3>
+                        <p class="feature-desc">Instantly find any snippet of information with our optimized search engine.</p>
                     </div>
-                    <h3 class="feature-title">Lightning Search</h3>
-                    <p class="feature-desc">Instantly find any snippet of information with our optimized search engine.</p>
                 </div>
             </div>
         </main>
