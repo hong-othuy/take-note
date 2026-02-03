@@ -93,9 +93,6 @@
         }
 
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 40px;
         }
 
@@ -153,6 +150,8 @@
             font-weight: 600;
             margin-bottom: 12px;
             color: var(--foreground);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .card-content {
@@ -161,6 +160,14 @@
             margin-bottom: 20px;
             line-height: 1.6;
             flex-grow: 1;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-height: 150px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
         }
 
         .card-footer {
@@ -217,12 +224,6 @@
         <main class="main">
             <div class="header">
                 <h1>Trash</h1>
-                <div class="actions">
-                    <a href="notes" class="btn btn-secondary">
-                        <i data-lucide="arrow-left" style="width: 16px; height: 16px; margin-right: 8px;"></i>
-                        Back to Notes
-                    </a>
-                </div>
             </div>
 
             <% if (deletedNotes == null || deletedNotes.isEmpty()) { %>

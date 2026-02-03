@@ -151,17 +151,17 @@
             
             <div class="form-group">
                 <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                <input type="text" id="fullName" name="fullName" placeholder="Aleksander" required>
             </div>
 
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="johndoe" required>
+                <input type="text" id="username" name="username" placeholder="Alek" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                <input type="email" id="email" name="email" placeholder="alek@example.com" required>
             </div>
 
             <div class="form-group">
